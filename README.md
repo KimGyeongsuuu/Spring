@@ -4,3 +4,4 @@
 
 ### 개념
 + [정적 컨텐츠](https://github.com/KimGyeongsuuu/Spring/blob/main/%EA%B0%9C%EB%85%90/%EC%A0%95%EC%A0%81%20%EC%BB%A8%ED%85%90%EC%B8%A0.md)
++ [MVC](https://github.com/KimGyeongsuuu/Spring/blob/main/%EA%B0%9C%EB%85%90/MVC.md)
