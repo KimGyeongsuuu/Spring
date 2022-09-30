@@ -12,6 +12,47 @@ public class Student(){
 
 즉, 패키지 스캔 안에 이 어노테이션은 "이 클래스를 정의했으니 빈으로 등록하라" 는 뜻이 된다.
 
++ `Component`를 포함하는 다음 어노테이션도 스프링 빈으로 자동 등록된다.
+    + `@Controller`
+    + `@Service`
+    + `@Repository`
+
+
+`Component`를 아무때나 사용할 수 있는 것도 아니다.
+`@SpringBootApplication`어노테이션은 스프링의 가장 기본적인 설정을 해줍니다.
+```java
+Target(value = {ElementType.TYPE})
+@Retention(value = RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = {
+    @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {TypeExcludeFilter.class}),
+    @ComponentScan.Filter(type = FilterType.CUSTOM, classes = {AutoConfigurationExcludeFilter.class})})
+public @interface SpringBootApplication {
+
+    @AliasFor(annotation = EnableAutoConfiguration.class)
+    public Class<?>[] exclude() default {};
+
+    @AliasFor(annotation = EnableAutoConfiguration.class)
+    public String[] excludeName() default {};
+
+    @AliasFor(annotation = ComponentScan.class, attribute = "basePackages")
+    public String[] scanBasePackages() default {};
+
+    @AliasFor(annotation = ComponentScan.class, attribute = "basePackageClasses")
+    public Class<?>[] scanBasePackageClasses() default {};
+
+    @AliasFor(annotation = ComponentScan.class, attribute = "nameGenerator")
+    public Class<? extends BeanNameGenerator> nameGenerator() default BeanNameGenerator.class;
+
+    @AliasFor(annotation = Configuration.class)
+    public boolean proxyBeanMethods() default true;
+}
+```
+여기서 `@ComponentScan`은 `@Component`어노테이션 및 `@Controller`, `@Service`, `@Repository`등의 어노테이션을 스캔하여 Bean에 등록합니다.
+
 # Bean
 개발자가 작성한 Method를 반환하는 객체를 Bean으로 만드는 것이다.
 `@Configuration` 어노테이션이 들어간 Spring을 설정하는 클래스 내에 들어가는 메소드에서 선언한다.
