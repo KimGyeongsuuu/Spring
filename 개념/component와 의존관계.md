@@ -57,22 +57,23 @@ public @interface SpringBootApplication {
 개발자가 작성한 Method를 반환하는 객체를 Bean으로 만드는 것이다.
 `@Configuration` 어노테이션이 들어간 Spring을 설정하는 클래스 내에 들어가는 메소드에서 선언한다.
 ```java
-@Configuration
-public class ApplicationConfig{
-    @Bean
-    public ArrayList<String> array(){
-        return new ArrayList<String>();
+package hello.hellospring.controller;
+
+import hello.hellospring.repository.MemberRepository;
+import hello.hellospring.service.MemberService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MemberController {
+    private final MemberService memberService;
+
+    @Autowired
+    public MemberController(MemberService memberService){
+        this.memberService = memberService;
     }
 }
-```
-```java
-@Configuration
-public class ApplicationConfig{
-    @Bean(name="myarray")
-    public ArrayList<String> array(){
-        return new ArrayList<String>();
-    }
-}
+
 ```
 위와 같이 `@Bean`어노테이션에 `name`이라는 값을 이용하면 자신이 원하는 id로 `Bean`을 조정할 수 있다.
 
