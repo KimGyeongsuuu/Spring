@@ -1,24 +1,16 @@
 package hello.hellospring.repository;
-
 import hello.hellospring.domain.Member;
 import org.springframework.jdbc.datasource.DataSourceUtils;
-
 import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static java.sql.DriverManager.getConnection;
 public class JdbcMemberRepository implements MemberRepository {
-
     private final DataSource dataSource;
-
     public JdbcMemberRepository(DataSource dataSource) {
         this.dataSource = dataSource;
     }
-
-
     @Override
     public Member save(Member member) {
         String sql = "insert into member(name) values(?)";
