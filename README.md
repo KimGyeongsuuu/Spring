@@ -1,6 +1,8 @@
 # Spring
++ 스프링 입문 - 코드로 배우는 스프링 부트, 웹 MVC, DB 접근 기술
++ 인프런에서 강의를 듣고 코드를 올립니다.
 
-### Spring강의를 듣고 공부한 것을 올리는 곳
+
 
 ### 개념
 + [정적 컨텐츠](https://github.com/KimGyeongsuuu/Spring/blob/main/%EA%B0%9C%EB%85%90/%EC%A0%95%EC%A0%81%20%EC%BB%A8%ED%85%90%EC%B8%A0.md)
