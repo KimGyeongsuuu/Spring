@@ -14,7 +14,7 @@ public class XmlAppContext {
 
     @Test
     void xmlAppContext(){
-        ApplicationContext genericXmlApplicationContext = new GenericXmlApplicationContext("appConfig.xml");
+        ApplicationContext ac = new GenericXmlApplicationContext("appConfig.xml");
 
         MemberService memberService = ac.getBean("memberService",
                 MemberService.class);
