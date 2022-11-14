@@ -1,13 +1,13 @@
 package hello.servlet.basic.domain;
 
-import org.assertj.core.api.Assertions;
+import hello.servlet.domain.Member;
+import hello.servlet.domain.MemberRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
 
 class MemberRepositoryTest {
     MemberRepository memberRepository = MemberRepository.getInstance();
