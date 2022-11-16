@@ -24,15 +24,15 @@ public class FrontControllerServletV2 extends HttpServlet {
     private Map<String, ControllerV2> controllerMap = new HashMap<>();
 
     public FrontControllerServletV2() {
-        controllerMap.put("/front-controller/v1/members/new-form",new MemberFormControllerV2());
-        controllerMap.put("/front-controller/v1/members/save",new MemberSaveControllerV2());
-        controllerMap.put("/front-controller/v1/members",new MemberListControllerV2());
+        controllerMap.put("/front-controller/v2/members/new-form",new MemberFormControllerV2());
+        controllerMap.put("/front-controller/v2/members/save",new MemberSaveControllerV2());
+        controllerMap.put("/front-controller/v2/members",new MemberListControllerV2());
     }
 
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("FrontControllerServletV1.service");
+        System.out.println("FrontControllerServletV2.service");
 
         String requestURI = request.getRequestURI();
 
