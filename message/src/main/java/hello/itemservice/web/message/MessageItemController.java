@@ -1,4 +1,4 @@
-package hello.itemservice.web.form;
+package hello.itemservice.web.message;
 
 
 import hello.itemservice.domain.item.DeliveryCode;
@@ -22,7 +22,7 @@ import java.util.Map;
 @Controller
 @RequestMapping("/basic/items")
 @RequiredArgsConstructor
-public class FormItemController {
+public class MessageItemController {
     private final ItemRepository itemRepository;
 
     @ModelAttribute("regions")
@@ -52,14 +52,14 @@ public class FormItemController {
     public String items(Model model){
         List<Item> items = itemRepository.findAll();
         model.addAttribute("items",items);
-        return "/basic/items";
+        return "/message/items";
     }
 
     @GetMapping("/{itemId}")
     public String item(@PathVariable Long itemId, Model model) {
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item", item);
-        return "basic/item";
+        return "message/item";
     }
 
 
@@ -67,7 +67,7 @@ public class FormItemController {
     public String addForm(Model model){
         model.addAttribute("item",new Item());
 
-        return "basic/addForm";
+        return "message/addForm";
     }
 
 
@@ -88,7 +88,7 @@ public class FormItemController {
     public String editForm(@PathVariable Long itemId, Model model){
         Item item = itemRepository.findById(itemId);
         model.addAttribute("item",item);
-        return "basic/editForm";
+        return "message/editForm";
     }
 
     @PostMapping("/{itemId}/edit")
