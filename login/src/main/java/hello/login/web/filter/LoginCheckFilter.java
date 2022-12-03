@@ -9,11 +9,9 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 @Slf4j
 public class LoginCheckFilter implements Filter {
-    private static final String[] whitelist = {"/", "/members/add", "/login",
-            "/logout","/css/*"};
+    private static final String[] whitelist = {"/", "/members/add", "/login", "/logout","/css/*"};
     @Override
-    public void doFilter(ServletRequest request, ServletResponse response,
-                         FilterChain chain) throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String requestURI = httpRequest.getRequestURI();
         HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -28,12 +26,12 @@ public class LoginCheckFilter implements Filter {
                     //로그인으로 redirect
                     httpResponse.sendRedirect("/login?redirectURL=" +
                             requestURI);
-                    return; //여기가 중요, 미인증 사용자는 다음으로 진행하지 않고 끝!
+                    return;
                 }
             }
             chain.doFilter(request, response);
         } catch (Exception e) {
-            throw e; //예외 로깅 가능 하지만, 톰캣까지 예외를 보내주어야 함
+            throw e;
         } finally {
             log.info("인증 체크 필터 종료 {}", requestURI);
         }
